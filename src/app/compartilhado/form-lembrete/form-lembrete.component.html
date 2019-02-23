@@ -1,0 +1,39 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="prioridade">Prioridade</label>
+    <select
+      #prioridade="ngModel"
+      class="form-control"
+      [class.is-invalid]="!prioridade.valid && prioridade.touched"
+      id="prioridade"
+      name="prioridade"
+      [(ngModel)]="lembrete.prioridade"
+      required>
+      <option [ngValue]="undefined">Selecione...</option>
+      <option value="BAIXA">BAIXA</option>
+      <option value="MEDIA">MÉDIA</option>
+      <option value="ALTA">ALTA</option>
+    </select>
+    <div *ngIf="!prioridade.valid && prioridade.touched" class="invalid-feedback">
+      Selecione a prioridade!
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="conteudo">Lembrete</label>
+    <textarea
+      class="form-control"
+      id="conteudo"
+      rows="4"
+      placeholder="Digite seu lembrete" name="conteudo"
+      #conteudo="ngModel"
+      [(ngModel)]="lembrete.conteudo"
+      [class.is-invalid]="!conteudo.valid && conteudo.touched"
+      required>
+    </textarea>
+    <div *ngIf="!conteudo.valid && conteudo.touched" class="text-danger">
+      Descreva o lembrete!
+    </div>
+  </div>
+  <button class="btn btn-secondary ml-2" type="button" routerLink="/">Voltar</button>
+  <button class="btn btn-primary ml-2" type="submit" [disabled]="!form.valid">Salvar</button>
+</form>

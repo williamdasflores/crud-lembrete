@@ -1,0 +1,10 @@
+ng new lembrete -> Create the project and its structure
+
+ng g interface interfaces/lembrete -> Command to create an interface 'lembrete' within interfaces folder
+
+ng g service services/lembrete -> Create service's structure within services folder
+
+ng serve -> Deploy locally at http://localhost:4200/
+
+
+
